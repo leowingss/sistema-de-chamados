@@ -8,6 +8,11 @@ export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        alert('CLICOU');
+    }
+
     return (
         <div className='container-center'>
             <div className='login'>
@@ -15,10 +20,16 @@ export default function SignIn() {
                     <img src={logo} alt='Sistema Logo' />
                 </div>
 
-                <form>
+                <form onSubmit={handleSubmit} >
                     <h1>Entrar</h1>
-                    <input type={'text'} placeholder='Digite seu email' />
-                    <input type={'password'} placeholder='******* ' />
+                    <input type={'text'}
+                        placeholder='Digite seu email'
+                        value={email}
+                        onChange={e => setEmail(e.target.value)} />
+                    <input type={'password'}
+                        placeholder='******* '
+                        value={password}
+                        onChange={e => setPassword(e.target.value)} />
                     <button type='submit'>Acessar</button>
                 </form>
 
