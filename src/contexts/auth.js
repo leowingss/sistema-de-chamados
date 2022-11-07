@@ -99,6 +99,7 @@ export default function AuthProvider({ children }) {
                 signed: !!user,
                 user,
                 loading,
+                loadingAuth,
                 signUp,
                 signOut,
                 signIn
