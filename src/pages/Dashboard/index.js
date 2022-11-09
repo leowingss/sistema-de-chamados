@@ -5,7 +5,8 @@ import Title from '../../components/Title';
 import firebase from '../../services/firebaseConnection';
 import { FiMessageSquare, FiPlus, FiSearch, FiEdit2 } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { format } from 'date-fns';
+import { format, setDate } from 'date-fns';
+import Modal from '../../components/Modal';
 import './dashboard.css';
 
 
@@ -18,6 +19,9 @@ export default function Dashboard() {
     const [loadingMore, setLoadingMore] = useState(false);
     const [isEmpty, setIsEmpty] = useState(false);
     const [lastDocs, setLastDocs] = useState();
+
+    const [showPostModal, setShowPostModal] = useState(false);
+    const [detail, setDetail] = useState();
 
     useEffect(() => {
 
@@ -82,6 +86,11 @@ export default function Dashboard() {
             })
     }
 
+    function togglePostModal(item) {
+        setShowPostModal(!showPostModal)
+        setDetail(item);
+    }
+
     if (loading) {
         return (
             <div>
@@ -144,10 +153,10 @@ export default function Dashboard() {
                                             </td>
                                             <td data-label='Cadastrado'> {chamado.createdFormated}</td>
                                             <td data-label='#'>
-                                                <button className='action' style={{ backgroundColor: '#3583f6' }}>
+                                                <button onClick={() => togglePostModal(chamado)} className='action' style={{ backgroundColor: '#3583f6' }}>
                                                     <FiSearch color='#fff' size={17} />
                                                 </button>
-                                                <button className='action' style={{ backgroundColor: '#f6a935' }}>
+                                                <button onClick={() => { }} className='action' style={{ backgroundColor: '#f6a935' }}>
                                                     <FiEdit2 color='#fff' size={17} />
                                                 </button>
                                             </td>
@@ -163,6 +172,14 @@ export default function Dashboard() {
                     </>
                 )}
             </div>
+
+            {showPostModal && (
+                <Modal
+                    conteudo={detail}
+                    close={togglePostModal}
+                />
+            )}
+
         </div>
     );
 
