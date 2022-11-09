@@ -107,7 +107,9 @@ export default function AuthProvider({ children }) {
                 loadingAuth,
                 signUp,
                 signOut,
-                signIn
+                signIn,
+                setUser,
+                storageUser
             }}>
             {children}
         </AuthContext.Provider>
