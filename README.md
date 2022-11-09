@@ -11,11 +11,11 @@
 ## Layout 
 
  <div style="display: flex; flex-wrap: wrap; margin-bottom: 30px">
-    <img src="./src/assets/login.png" style="width: 400px;">
-    <img src="./src/assets/profile.png" style="width: 400px;">
-    <img src="./src/assets/clientes.png" style="width: 400px;">
-    <img src="./src/assets/chamados.png" style="width: 400px;">
-    <img src="./src/assets/novoChamado.png" style="width: 400px;">
+    <img src="./src/assets/login.png" style="width: 330px;">
+    <img src="./src/assets/profile.png" style="width: 330px;">
+    <img src="./src/assets/clientes.png" style="width: 330px;">
+    <img src="./src/assets/chamados.png" style="width: 330px;">
+    <img src="./src/assets/novoChamado.png" style="width: 330px;">
 
  </div>
 
