@@ -46,8 +46,6 @@ export default function Modal({ conteudo, close }) {
                             </p>
                         </>
                     )}
-
-
                 </div>
             </div>
         </div>

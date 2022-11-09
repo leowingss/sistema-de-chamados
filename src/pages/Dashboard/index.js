@@ -156,9 +156,9 @@ export default function Dashboard() {
                                                 <button onClick={() => togglePostModal(chamado)} className='action' style={{ backgroundColor: '#3583f6' }}>
                                                     <FiSearch color='#fff' size={17} />
                                                 </button>
-                                                <button onClick={() => { }} className='action' style={{ backgroundColor: '#f6a935' }}>
+                                                <Link to={`/new/${chamado.id}`} onClick={() => { }} className='action' style={{ backgroundColor: '#f6a935' }}>
                                                     <FiEdit2 color='#fff' size={17} />
-                                                </button>
+                                                </Link>
                                             </td>
                                         </tr>
                                     )
