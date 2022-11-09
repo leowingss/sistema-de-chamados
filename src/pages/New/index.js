@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import Title from '../../components/Title';
 import { FiPlusCircle } from 'react-icons/fi';
 import { AuthContext } from '../../contexts/auth';
+import { toast } from 'react-toastify';
 import './new.css';
 
 export default function New() {
@@ -54,9 +55,29 @@ export default function New() {
     }, [])
 
 
-    function handleRegister(e) {
+    async function handleRegister(e) {
         e.preventDefault();
 
+        await firebase.firestore().collection('chamados')
+            .add({
+                created: new Date(),
+                cliente: customers[customerSelected].nomeFantasia,
+                clienteId: customers[customerSelected].id,
+                assunto,
+                status,
+                complemento,
+                userId: user?.uid
+            })
+            .then(() => {
+                toast.success('Chamado criado com sucesso!');
+                setComplemento('');
+                setCustomerSelected(0);
+            })
+            .catch(err => {
+                toast.error('Erro ao registar.');
+                console.log(err);
+
+            })
     }
 
     function handleChangeSelect(e) {
